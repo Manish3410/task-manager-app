@@ -1,15 +1,15 @@
 import axios from "axios";
-
 import { getAuth, clearAuth } from "../utils/storage";
 
-const baseURL = import.meta.env.VITE_API_BASE_URI || "http://localhost:5000";
+const baseURL = import.meta.env.VITE_API_BASE_URL || "http://localhost:5000";
 
-const axiosClint = axios.create({
+const axiosClient = axios.create({
   baseURL,
   headers: { "Content-Type": "application/json" },
 });
 
-axiosClint.interceptors.request.use(
+//req interceptor - runs before every request
+axiosClient.interceptors.request.use(
   (config) => {
     const auth = getAuth();
     const token = auth?.token;
@@ -21,10 +21,10 @@ axiosClint.interceptors.request.use(
   (error) => Promise.reject(error),
 );
 
-axiosClint.interceptors.response.use(
+axiosClient.interceptors.response.use(
   (res) => res,
   (error) => {
-    const status = error.response?.status;
+    const status = error?.response?.status;
     if (status == 401) {
       clearAuth();
       window.location.assign("/login");
@@ -33,5 +33,4 @@ axiosClint.interceptors.response.use(
   },
 );
 
-
-export default axiosClint;
+export default axiosClient;

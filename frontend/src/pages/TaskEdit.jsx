@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { fetchTaskByIdApi, updateTaskApi } from "../api/taskApi";
 import TaskForm from "../components/TaskForm";
@@ -38,7 +38,9 @@ export default function TaskEdit() {
       await updateTaskApi(id, payload);
       navigate(`/tasks/${id}`, { replace: true });
     } catch (err) {
-      setError(err?.response?.data?.message || err?.message || "Update failed");
+      const errorMessage =
+        err?.response?.data?.message || err?.message || "Update failed";
+      setError(errorMessage);
     }
   };
 

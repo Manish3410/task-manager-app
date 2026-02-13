@@ -3,6 +3,8 @@ import React, { createContext, useContext, useMemo, useState } from "react";
 import { clearAuth, getAuth, setAuth } from "../utils/storage";
 
 const AuthContext = createContext(null);
+//provider -> component
+
 export const AuthProvider = ({ children }) => {
   const existing = getAuth();
 
@@ -35,4 +37,4 @@ export const useAuth = () => {
   if (!ctx) throw new Error("useAuth must have AuthProvider");
   return ctx;
 };
-
+//token,user,isAuthentication,login,logout = useAuth();

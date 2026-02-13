@@ -22,7 +22,7 @@ export default function UserFilters({ value, onChange, onApply, onReset }) {
             <label className="form-label">Email (exact match)</label>
             <input
               className="form-control"
-              placeholder="e.g. huma@example.com"
+              placeholder="e.g. manish@example.com"
               value={value.email}
               onChange={(e) =>
                 onChange({ ...value, email: e.target.value, page: 1 })

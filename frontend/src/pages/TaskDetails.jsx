@@ -18,7 +18,7 @@ export default function TaskDetails() {
     try {
       const res = await fetchTaskByIdApi(id);
       setTask(res.data);
-    } catch {
+    } catch{
       // ownership / not found → NotFound as per requirement
       navigate("/not-found", { replace: true });
     }

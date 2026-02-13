@@ -54,11 +54,11 @@ export default function Navbar() {
                     Tasks
                   </NavLink>
                 </li>
-                <li className="nav-item">
+                {/* <li className="nav-item">
                   <NavLink className="nav-link" to="/tasks/create">
                     Create Task
                   </NavLink>
-                </li>
+                </li> */}
 
                 {user?.role === "admin" && (
                   <li className="nav-item">

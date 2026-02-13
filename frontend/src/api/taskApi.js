@@ -1,26 +1,23 @@
-import axiosClint from "./axiosClient";
+import axiosClient from "./axiosClient";
 
 export const fetchTasksApi = async ({ params }) => {
-  const res = await axiosClint.get("/tasks", { params });
-  return res.data;
+  const res = await axiosClient.get("/tasks", { params });
+  return res.data; // success,message, data:tasks[],metadata
 };
 
-export const createTasksApi = async (payload) => {
-  const res = await axiosClint.post("/tasks", payload);
-  return res.data;
+export const createTaskApi = async (payload) => {
+  const res = await axiosClient.post("/tasks", payload);
+  return res.data; // success,message, data: task
 };
-
 export const fetchTaskByIdApi = async (id) => {
-  const res = await axiosClint.get(`/tasks/${id}`);
-  return res.data;
+  const res = await axiosClient.get(`/tasks/${id}`);
+  return res.data; // success,message, data: task
 };
-
-export const updateTasksApi = async (id, payload) => {
-  const res = await axiosClint.get(`/tasks/${id}`, payload);
-  return res.data;
+export const updateTaskApi = async (id, payload) => {
+  const res = await axiosClient.put(`/tasks/${id}`, payload);
+  return res.data; // success,message, data: task
 };
-
-export const deleteTasksApi = async (id) => {
-  const res = await axiosClint.get(`/tasks/${id}`);
-  return res.data;
+export const deleteTaskApi = async (id) => {
+  const res = await axiosClient.delete(`/tasks/${id}`);
+  return res.data; // success,message, data: {id}
 };
