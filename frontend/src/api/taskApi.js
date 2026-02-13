@@ -1,22 +1,22 @@
-import axiosClint from "./axiosClint";
+import axiosClint from "./axiosClient";
 
-export const fetchTasksApi = async ({params}) => {
+export const fetchTasksApi = async ({ params }) => {
   const res = await axiosClint.get("/tasks", { params });
   return res.data;
 };
 
 export const createTasksApi = async (payload) => {
-  const res = await axiosClint.post("/tasks",payload);
+  const res = await axiosClint.post("/tasks", payload);
   return res.data;
 };
 
 export const fetchTaskByIdApi = async (id) => {
-  const res = await axiosClint.get(`/tasks/${id}`,);
+  const res = await axiosClint.get(`/tasks/${id}`);
   return res.data;
 };
 
-export const updateTasksApi = async (id,payload) => {
-  const res = await axiosClint.get(`/tasks/${id}`,payload);
+export const updateTasksApi = async (id, payload) => {
+  const res = await axiosClint.get(`/tasks/${id}`, payload);
   return res.data;
 };
 

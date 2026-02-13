@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { fetchTasksApi, deleteTaskApi } from "../api/taskApi";
-import TaskFilters from "../components/TaskFilters";
+import TaskFilters from "../components/TaskFilter";
 import TaskCard from "../components/TaskCard";
 import Pagination from "../components/Pagination";
 import { useAuth } from "../context/AuthContext";
